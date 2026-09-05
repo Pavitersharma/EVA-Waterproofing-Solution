@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * EVA Waterproofing & Solution design system.
+ * Deep navy + professional waterproofing blue + aqua accent on white/light grey.
+ * All colors are oklch semantic tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-deep: var(--primary-deep);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-strong-foreground: var(--accent-strong-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --shadow-card: var(--shadow-card-value);
+  --shadow-lift: var(--shadow-lift-value);
+  --shadow-brand: var(--shadow-brand-value);
+  --font-sans: var(--font-sans-stack);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.24 0.035 260);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.035 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.035 260);
+
+  /* Deep navy */
+  --primary: oklch(0.31 0.075 261);
+  --primary-foreground: oklch(0.985 0.005 240);
+  --primary-deep: oklch(0.24 0.062 262);
+
+  /* Light grey section surfaces */
+  --secondary: oklch(0.966 0.006 250);
+  --secondary-foreground: oklch(0.31 0.075 261);
+  --muted: oklch(0.966 0.006 250);
+  --muted-foreground: oklch(0.53 0.028 256);
+
+  /* Aqua / cyan accent */
+  --accent: oklch(0.95 0.03 205);
+  --accent-foreground: oklch(0.31 0.075 261);
+  --accent-strong: oklch(0.79 0.115 197);
+  --accent-strong-foreground: oklch(0.24 0.062 262);
+
+  /* Professional waterproofing blue (CTAs) */
+  --brand: oklch(0.55 0.16 254);
+  --brand-foreground: oklch(0.99 0.005 240);
+  --brand-strong: oklch(0.48 0.16 256);
+  --brand-soft: oklch(0.96 0.022 250);
+
+  --whatsapp: oklch(0.63 0.16 148);
+  --whatsapp-foreground: oklch(0.99 0.005 240);
+
+  --destructive: oklch(0.56 0.2 27);
+  --destructive-foreground: oklch(0.985 0.005 240);
+  --warning: oklch(0.72 0.15 62);
+
+  --border: oklch(0.918 0.01 252);
+  --input: oklch(0.918 0.01 252);
+  --ring: oklch(0.55 0.16 254);
+
+  --chart-1: oklch(0.55 0.16 254);
+  --chart-2: oklch(0.79 0.115 197);
+  --chart-3: oklch(0.31 0.075 261);
+  --chart-4: oklch(0.63 0.16 148);
+  --chart-5: oklch(0.72 0.15 62);
+
+  --sidebar: oklch(0.985 0.005 250);
+  --sidebar-foreground: oklch(0.24 0.035 260);
+  --sidebar-primary: oklch(0.31 0.075 261);
+  --sidebar-primary-foreground: oklch(0.985 0.005 240);
+  --sidebar-accent: oklch(0.966 0.006 250);
+  --sidebar-accent-foreground: oklch(0.31 0.075 261);
+  --sidebar-border: oklch(0.918 0.01 252);
+  --sidebar-ring: oklch(0.55 0.16 254);
+
+  --shadow-card-value:
+    0 1px 2px oklch(0.31 0.075 261 / 0.06), 0 8px 24px oklch(0.31 0.075 261 / 0.07);
+  --shadow-lift-value:
+    0 2px 4px oklch(0.31 0.075 261 / 0.07), 0 18px 40px oklch(0.31 0.075 261 / 0.13);
+  --shadow-brand-value: 0 8px 22px oklch(0.55 0.16 254 / 0.28);
+
+  --font-sans-stack:
+    var(--font-plus-jakarta), "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+}
+
+.dark {
+  --background: oklch(0.18 0.04 261);
+  --foreground: oklch(0.97 0.006 250);
+  --card: oklch(0.24 0.05 261);
+  --card-foreground: oklch(0.97 0.006 250);
+  --popover: oklch(0.24 0.05 261);
+  --popover-foreground: oklch(0.97 0.006 250);
+  --primary: oklch(0.97 0.006 250);
+  --primary-foreground: oklch(0.24 0.062 262);
+  --primary-deep: oklch(0.15 0.04 262);
+  --secondary: oklch(0.27 0.045 261);
+  --secondary-foreground: oklch(0.97 0.006 250);
+  --muted: oklch(0.27 0.045 261);
+  --muted-foreground: oklch(0.74 0.02 254);
+  --accent: oklch(0.3 0.05 240);
+  --accent-foreground: oklch(0.97 0.006 250);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans-stack);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+}
+
+@utility section-shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1rem;
+  @media (width >= 1024px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility surface-grid {
+  background-image:
+    linear-gradient(oklch(0.55 0.16 254 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.55 0.16 254 / 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@utility hero-veil {
+  background: linear-gradient(
+    100deg,
+    oklch(0.24 0.062 262 / 0.94) 0%,
+    oklch(0.24 0.062 262 / 0.82) 45%,
+    oklch(0.31 0.075 261 / 0.55) 100%
+  );
+}
