@@ -22,7 +22,7 @@ export function MobileCtaBar() {
           WhatsApp
         </a>
         <a
-          href="#contact"
+          href="/contact"
           className="flex flex-col items-center gap-1 bg-primary py-2.5 text-[0.7rem] font-bold uppercase tracking-wide text-primary-foreground"
         >
           <ClipboardList className="size-5" aria-hidden="true" />

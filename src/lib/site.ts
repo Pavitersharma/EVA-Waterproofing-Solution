@@ -11,11 +11,11 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#process" },
-  { label: "Why Choose Us", href: "#why-us" },
-  { label: "Projects", href: "#projects" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "How It Works", href: "/#process" },
+  { label: "Why Choose Us", href: "/#why-us" },
+  { label: "Projects", href: "/#projects" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/contact" },
 ] as const;

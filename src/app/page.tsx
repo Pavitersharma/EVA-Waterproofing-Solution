@@ -19,16 +19,17 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
-  Star,
   Syringe,
   Waves,
   Wrench,
 } from "lucide-react";
 
 import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
 import { MobileCtaBar } from "@/components/site/MobileCtaBar";
 import { Reveal } from "@/components/site/Reveal";
-import { ContactForm } from "@/components/site/ContactForm";
+import { SectionHeading } from "@/components/site/SectionHeading";
+import { ReviewCarousel, ReviewCard, type ReviewData } from "@/components/site/ReviewCarousel";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -36,7 +37,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { NAV_LINKS, SITE } from "@/lib/site";
+import { SITE } from "@/lib/site";
 
 import heroImg from "@/assets/hero-terrace-waterproofing.jpg";
 import aboutImg from "@/assets/about-inspection.jpg";
@@ -76,54 +77,13 @@ export const metadata: Metadata = {
   },
 };
 
+/* ─────────────────────────── data ─────────────────────────── */
+
 const TRUST_POINTS = [
   "Professional Workmanship",
   "Quality Waterproofing Solutions",
   "Transparent Guidance",
   "Residential & Commercial Services",
-];
-
-const PROBLEMS = [
-  {
-    icon: Home,
-    title: "Roof Leakage",
-    text: "Water entering through roof slabs, joints and weak points.",
-  },
-  {
-    icon: Waves,
-    title: "Terrace Water Leakage",
-    text: "Rainwater standing on terraces and seeping into ceilings.",
-  },
-  {
-    icon: Bath,
-    title: "Bathroom Seepage",
-    text: "Moisture travelling through bathroom walls and floors.",
-  },
-  {
-    icon: Droplets,
-    title: "Wall Dampness",
-    text: "Damp patches, salt deposits and peeling paint on walls.",
-  },
-  {
-    icon: Blocks,
-    title: "Water Tank Leakage",
-    text: "Overhead and underground tanks losing water through cracks.",
-  },
-  {
-    icon: Building2,
-    title: "Basement Seepage",
-    text: "Groundwater pushing moisture into basement walls and floors.",
-  },
-  {
-    icon: Wrench,
-    title: "Cracks & Water Penetration",
-    text: "Structural and surface cracks acting as water paths.",
-  },
-  {
-    icon: Sparkles,
-    title: "Monsoon Water Damage",
-    text: "Problems that appear or worsen during heavy rainfall.",
-  },
 ];
 
 const SERVICES = [
@@ -241,6 +201,27 @@ const PROJECTS = [
   { category: "Bathroom Waterproofing", before: beforeBathroom, after: afterBathroom },
 ];
 
+const REVIEWS: ReviewData[] = [
+  {
+    name: "Dr. Subash",
+    rating: 5,
+    text: "Very professional waterproofing service. The team explained the problem clearly, kept us informed throughout the process, and delivered excellent results. Really satisfied with the overall experience.",
+    initials: "DS",
+  },
+  {
+    name: "Rampal",
+    rating: 5,
+    text: "Reliable and hassle-free service. The staff was helpful right from the first call, guided us on what needed to be done, and completed the bathroom waterproofing work smoothly. Would definitely recommend.",
+    initials: "R",
+  },
+  {
+    name: "Brijlal Dhiman",
+    rating: 5,
+    text: "Excellent quality of work on our terrace seepage issue. They responded quickly to our inquiry, arrived on time, and finished the job neatly. I would happily recommend EVA Waterproofing to anyone.",
+    initials: "BD",
+  },
+];
+
 const FAQS = [
   {
     q: "What areas do you provide waterproofing services in?",
@@ -248,52 +229,19 @@ const FAQS = [
   },
   {
     q: "Do you provide terrace waterproofing?",
-    a: "Yes, terrace waterproofing is one of our key services.",
+    a: "Yes, terrace waterproofing is one of our key services. We offer protection against rainwater penetration, cracks, seepage and terrace leakage.",
   },
-  {
-    q: "Do you repair water leakage?",
-    a: "Yes, we provide water leakage inspection and suitable repair/treatment solutions.",
-  },
-  { q: "Do you provide bathroom waterproofing?", a: "Yes." },
   {
     q: "Do you treat wall seepage and dampness?",
-    a: "Yes, we provide seepage and dampness treatment solutions.",
+    a: "Yes, we provide seepage and dampness treatment solutions for damp patches, peeling surfaces and moisture-related wall problems.",
   },
-  { q: "Do you provide basement waterproofing?", a: "Yes." },
   {
     q: "How can I get a waterproofing inspection?",
     a: `Customers can call or WhatsApp ${SITE.phone} to discuss their requirement and arrange an inspection.`,
   },
 ];
 
-function SectionHeading({
-  eyebrow,
-  title,
-  subtitle,
-  align = "center",
-}: {
-  eyebrow?: string;
-  title: string;
-  subtitle?: string;
-  align?: "center" | "left";
-}) {
-  return (
-    <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-2xl"}>
-      {eyebrow && (
-        <span className="inline-flex items-center gap-2 rounded-full bg-brand-soft px-3.5 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-brand">
-          <Droplets className="size-3.5" aria-hidden="true" />
-          {eyebrow}
-        </span>
-      )}
-      <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl lg:text-[2.6rem] lg:leading-[1.1]">
-        {title}
-      </h2>
-      {subtitle && (
-        <p className="mt-4 text-base leading-relaxed text-muted-foreground">{subtitle}</p>
-      )}
-    </div>
-  );
-}
+/* ─────────────────────────── page ─────────────────────────── */
 
 export default function HomeLandingPage() {
   const schemaData = {
@@ -330,7 +278,6 @@ export default function HomeLandingPage() {
         <Navbar />
         <main>
           <Hero />
-          <Problems />
           <Services />
           <Process />
           <WhyUs />
@@ -340,7 +287,6 @@ export default function HomeLandingPage() {
           <Reviews />
           <Faq />
           <CtaBanner />
-          <Contact />
         </main>
         <Footer />
         <MobileCtaBar />
@@ -349,15 +295,17 @@ export default function HomeLandingPage() {
   );
 }
 
+/* ─────────────────────── section components ─────────────────────── */
+
 function Hero() {
   return (
-    <section id="home" className="relative isolate overflow-hidden pt-16 sm:pt-18">
+    <section id="home" className="relative isolate overflow-hidden  pt-16 sm:pt-18">
       <Image
         src={heroImg}
         alt="Waterproofing team applying blue waterproof coating on a terrace roof in Kurukshetra"
         priority
         fill
-        className="absolute inset-0 -z-20 size-full object-cover"
+        className="absolute inset-0 -z-20 size-full object-cover opacity-100"
       />
       <div className="hero-veil absolute inset-0 -z-10" />
       <div className="section-shell py-16 sm:py-24 lg:py-32">
@@ -382,7 +330,7 @@ function Hero() {
           <Reveal delay={240}>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="hero" size="xl">
-                <a href="#contact">
+                <a href="/contact">
                   Get Free Inspection
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </a>
@@ -420,47 +368,6 @@ function Hero() {
   );
 }
 
-function Problems() {
-  return (
-    <section id="problems" className="bg-secondary py-16 sm:py-24">
-      <div className="section-shell">
-        <SectionHeading
-          eyebrow="Common Problems"
-          title="Water Problems Can Become Bigger Problems"
-          subtitle="Small leaks and damp patches rarely stay small. Untreated water movement can affect plaster, paint, tiles and the structure itself."
-        />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {PROBLEMS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 50}>
-              <article className="group h-full rounded-2xl border border-border bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-lift">
-                <span className="grid size-11 place-items-center rounded-xl bg-brand-soft text-brand transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
-                  <p.icon className="size-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 text-base font-bold">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-col items-center gap-4 rounded-2xl border border-brand/20 bg-card p-6 text-center shadow-card sm:flex-row sm:justify-between sm:text-left">
-          <p className="text-lg font-bold">Have a Leakage Problem? Talk to Our Team</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button asChild variant="cta" size="lg">
-              <a href={SITE.phoneHref}>
-                <Phone className="size-4" aria-hidden="true" />
-                Call Now
-              </a>
-            </Button>
-            <Button asChild variant="softOutline" size="lg">
-              <a href="#contact">Get Free Inspection</a>
-            </Button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Services() {
   return (
     <section id="services" className="py-16 sm:py-24">
@@ -482,7 +389,7 @@ function Services() {
                   {s.text}
                 </p>
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-brand transition-all hover:gap-2.5"
                 >
                   Enquire Now
@@ -558,7 +465,7 @@ function Process() {
 
         <div className="mt-12 flex flex-wrap justify-center gap-3">
           <Button asChild variant="hero" size="xl">
-            <a href="#contact">Book a Property Inspection</a>
+            <a href="/contact">Book a Property Inspection</a>
           </Button>
           <Button asChild variant="onDark" size="xl">
             <a href={SITE.whatsappHref} target="_blank" rel="noreferrer">
@@ -680,28 +587,27 @@ function ServiceArea() {
   const areas = ["Kurukshetra City", "Thanesar", "Pehowa", "Shahabad", "Ladwa", "Nearby Villages"];
   return (
     <section id="service-area" className="py-16 sm:py-24">
-      <div className="section-shell grid items-center gap-10 lg:grid-cols-2">
+      <div className="section-shell">
         <Reveal>
           <SectionHeading
-            align="left"
             eyebrow="Service Area"
             title="Waterproofing Services in Kurukshetra"
             subtitle="EVA Waterproofing & Solution provides waterproofing and leakage treatment services in Kurukshetra and nearby areas of Haryana."
           />
-          <ul className="mt-7 grid grid-cols-2 gap-2.5">
+          <ul className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-3">
             {areas.map((a) => (
               <li
                 key={a}
-                className="flex items-center gap-2 text-sm font-semibold text-foreground/80"
+                className="flex items-center gap-2.5 rounded-xl border border-border bg-card px-4 py-3 text-sm font-semibold text-foreground/80 shadow-card"
               >
                 <MapPin className="size-4 shrink-0 text-brand" aria-hidden="true" />
                 {a}
               </li>
             ))}
           </ul>
-          <div className="mt-8 rounded-2xl border border-border bg-secondary p-5">
-            <p className="text-base font-bold">Need waterproofing help near you?</p>
-            <div className="mt-3 flex flex-wrap gap-3">
+          <div className="mx-auto mt-10 max-w-xl rounded-2xl border border-border bg-secondary p-6 text-center">
+            <p className="text-lg font-bold">Need waterproofing help near you?</p>
+            <div className="mt-4 flex flex-wrap justify-center gap-3">
               <Button asChild variant="cta" size="lg">
                 <a href={SITE.phoneHref}>
                   <Phone className="size-4" aria-hidden="true" />
@@ -713,41 +619,6 @@ function ServiceArea() {
                   WhatsApp
                 </a>
               </Button>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <div className="surface-grid relative overflow-hidden rounded-3xl border border-border bg-secondary p-8 shadow-card">
-            <div
-              className="absolute inset-0 bg-gradient-to-br from-brand/5 to-accent/40"
-              aria-hidden="true"
-            />
-            <div className="relative grid aspect-square place-items-center">
-              <span
-                className="absolute size-64 rounded-full border border-brand/25 sm:size-72"
-                aria-hidden="true"
-              />
-              <span
-                className="absolute size-44 rounded-full border border-brand/35 sm:size-52"
-                aria-hidden="true"
-              />
-              <span className="absolute size-24 rounded-full bg-brand/10" aria-hidden="true" />
-              <div className="relative flex flex-col items-center gap-3 text-center">
-                <div className="size-16 rounded-2xl bg-white p-2 shadow-brand border border-border/60">
-                  <Image
-                    src={logoEmblem}
-                    alt="EVA Waterproofing Hub"
-                    width={64}
-                    height={64}
-                    className="size-full object-contain"
-                  />
-                </div>
-                <p className="text-lg font-extrabold text-primary">Kurukshetra, Haryana</p>
-                <p className="max-w-[16rem] text-xs text-muted-foreground">
-                  Waterproofing &amp; leakage treatment across the city and surrounding areas.
-                </p>
-              </div>
             </div>
           </div>
         </Reveal>
@@ -818,10 +689,10 @@ function About() {
           </ul>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="cta" size="lg">
-              <a href="#contact">Get Free Inspection</a>
+              <a href="/contact">Get Free Inspection</a>
             </Button>
             <Button asChild variant="softOutline" size="lg">
-              <a href="#services">View Our Services</a>
+              <a href="/#services">View Our Services</a>
             </Button>
           </div>
         </Reveal>
@@ -837,30 +708,23 @@ function Reviews() {
         <SectionHeading
           eyebrow="Reviews"
           title="What Our Customers Say"
-          subtitle="We only publish genuine feedback from customers we have worked with."
+          subtitle="Genuine feedback from customers we have worked with."
         />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {[0, 1, 2].map((i) => (
-            <Reveal key={i} delay={i * 70}>
-              <article className="flex h-full flex-col rounded-2xl border border-dashed border-border bg-card p-7 shadow-card">
-                <div className="flex gap-1 text-accent-strong" aria-hidden="true">
-                  {[0, 1, 2, 3, 4].map((s) => (
-                    <Star key={s} className="size-4" />
-                  ))}
-                </div>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  Your real customer reviews will appear here.
-                </p>
-                <div className="mt-6 flex items-center gap-3">
-                  <span className="size-9 rounded-full bg-secondary" aria-hidden="true" />
-                  <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                    Customer name
-                  </span>
-                </div>
-              </article>
+
+        {/* Desktop grid */}
+        <div className="mt-12 hidden gap-5 lg:grid lg:grid-cols-3">
+          {REVIEWS.map((review, i) => (
+            <Reveal key={review.name} delay={i * 70}>
+              <ReviewCard review={review} />
             </Reveal>
           ))}
         </div>
+
+        {/* Mobile & Tablet carousel */}
+        <div className="mt-12 lg:hidden">
+          <ReviewCarousel reviews={REVIEWS} />
+        </div>
+
         <div className="mt-10 text-center">
           <Button asChild variant="softOutline" size="lg">
             <a href={SITE.whatsappHref} target="_blank" rel="noreferrer">
@@ -921,7 +785,7 @@ function CtaBanner() {
           </div>
         </div>
         <h2 className="text-3xl font-extrabold text-primary-foreground sm:text-4xl lg:text-5xl">
-          Don't Let Water Damage Get Worse
+          Don&apos;t Let Water Damage Get Worse
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/80">
           Tell us about your leakage, seepage or waterproofing problem and let our team help you
@@ -929,7 +793,7 @@ function CtaBanner() {
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button asChild variant="hero" size="xl">
-            <a href="#contact">Get a Free Inspection</a>
+            <a href="/contact">Get a Free Inspection</a>
           </Button>
           <Button asChild variant="whatsapp" size="xl">
             <a href={SITE.whatsappHref} target="_blank" rel="noreferrer">
@@ -956,185 +820,5 @@ function CtaBanner() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Contact() {
-  return (
-    <section id="contact" className="py-16 sm:py-24">
-      <div className="section-shell grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <Reveal>
-          <SectionHeading
-            align="left"
-            eyebrow="Contact"
-            title="Let's Solve Your Waterproofing Problem"
-            subtitle="Share a few details about the affected area and we will get back to you to arrange an inspection."
-          />
-          <ContactForm serviceOptions={SERVICES.map((s) => s.title)} />
-        </Reveal>
-
-        <Reveal delay={120}>
-          <div className="grid gap-4">
-            <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-card">
-              <div className="size-14 shrink-0 rounded-2xl border border-border/80 bg-white p-1 shadow-sm">
-                <Image
-                  src={logoEmblem}
-                  alt="EVA Waterproofing"
-                  width={56}
-                  height={56}
-                  className="size-full object-contain"
-                />
-              </div>
-              <div>
-                <p className="text-base font-extrabold text-primary">
-                  EVA Waterproofing &amp; Solution
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  Local Inspection &amp; Treatment Experts
-                </p>
-              </div>
-            </div>
-            {(
-              [
-                { icon: Phone, label: "Call", value: SITE.phone, href: SITE.phoneHref },
-                {
-                  icon: MessageCircle,
-                  label: "WhatsApp",
-                  value: SITE.phone,
-                  href: SITE.whatsappHref,
-                },
-                { icon: Mail, label: "Email", value: SITE.email, href: SITE.emailHref },
-              ] as const
-            ).map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target={item.label === "WhatsApp" ? "_blank" : undefined}
-                rel={item.label === "WhatsApp" ? "noreferrer" : undefined}
-                className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-card transition-all hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-lift"
-              >
-                <span className="grid size-11 place-items-center rounded-xl bg-brand-soft text-brand">
-                  <item.icon className="size-5" aria-hidden="true" />
-                </span>
-                <span>
-                  <span className="block text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                    {item.label}
-                  </span>
-                  <span className="block text-sm font-bold text-primary">{item.value}</span>
-                </span>
-              </a>
-            ))}
-            <div className="flex items-center gap-4 rounded-2xl border border-border bg-secondary p-5">
-              <span className="grid size-11 place-items-center rounded-xl bg-primary text-primary-foreground">
-                <MapPin className="size-5" aria-hidden="true" />
-              </span>
-              <span>
-                <span className="block text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                  Location
-                </span>
-                <span className="block text-sm font-bold text-primary">{SITE.location}</span>
-              </span>
-            </div>
-            <div className="rounded-2xl border border-brand/20 bg-brand-soft p-5">
-              <p className="text-sm font-bold text-primary">Working across Kurukshetra</p>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                Call or WhatsApp with photos of the affected area for quicker guidance before the
-                site inspection.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-primary-deep pt-14">
-      <div className="section-shell grid gap-10 pb-10 lg:grid-cols-3">
-        <div>
-          <a
-            href="#home"
-            className="inline-flex items-center gap-3.5 group transition-opacity hover:opacity-95"
-          >
-            <div className="relative size-14 sm:size-16 shrink-0 overflow-hidden rounded-2xl border border-white/20 bg-white p-1.5 shadow-sm transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src={logoEmblem}
-                alt="EVA Waterproofing & Solution Emblem"
-                width={64}
-                height={64}
-                className="size-full object-contain"
-              />
-            </div>
-            <span className="leading-tight">
-              <span className="block text-lg sm:text-xl font-extrabold tracking-tight text-primary-foreground">
-                EVA Waterproofing
-              </span>
-              <span className="block text-xs font-bold uppercase tracking-[0.18em] text-accent-strong">
-                &amp; Solution
-              </span>
-            </span>
-          </a>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
-            Professional waterproofing, leakage repair, seepage and dampness solutions in
-            Kurukshetra and nearby areas.
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-accent-strong">
-            Quick Links
-          </h3>
-          <ul className="mt-4 grid grid-cols-2 gap-2.5">
-            {[...NAV_LINKS, { label: "Privacy Policy", href: "#privacy" }].map((l) => (
-              <li key={l.label}>
-                <a
-                  href={l.href}
-                  className="text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="text-xs font-bold uppercase tracking-[0.16em] text-accent-strong">
-            Contact
-          </h3>
-          <ul className="mt-4 space-y-2.5 text-sm text-primary-foreground/75">
-            <li>
-              <a
-                href={SITE.phoneHref}
-                className="inline-flex items-center gap-2 hover:text-primary-foreground"
-              >
-                <Phone className="size-4" aria-hidden="true" />
-                {SITE.phone}
-              </a>
-            </li>
-            <li>
-              <a
-                href={SITE.emailHref}
-                className="inline-flex items-center gap-2 hover:text-primary-foreground"
-              >
-                <Mail className="size-4" aria-hidden="true" />
-                {SITE.email}
-              </a>
-            </li>
-            <li className="inline-flex items-center gap-2">
-              <MapPin className="size-4" aria-hidden="true" />
-              {SITE.location}
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-primary-foreground/10 py-5">
-        <p className="section-shell text-center text-xs text-primary-foreground/55">
-          © {new Date().getFullYear()} {SITE.name}. All rights reserved.
-        </p>
-      </div>
-    </footer>
   );
 }

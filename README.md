@@ -1,29 +1,54 @@
-# Welcome to your Lovable project
+# EVA Waterproofing & Solution
 
-This project was built with [Lovable](https://lovable.dev).
+Official website for **EVA Waterproofing & Solution** — providing professional waterproofing, leakage repair, seepage control, and dampness treatment services for residential, commercial, and industrial properties in Kurukshetra, Haryana, and surrounding regions.
 
-## Build with Lovable
+## Tech Stack
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **UI Library**: [React 19](https://react.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Components**: Radix UI / Shadcn UI primitives
+- **Language**: TypeScript
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Getting Started
 
-## Development
+### Prerequisites
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Ensure you have Node.js (v18.18+ or v20+) installed.
+
+### Installation
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+# Clone the repository
+git clone https://github.com/Pavitersharma/EVA-Waterproofing-Solution.git
+
+# Navigate to the project folder
+cd EVA-Waterproofing-Solution
+
+# Install dependencies
+npm install
+```
+
+### Running Locally
+
+```sh
 npm run dev
 ```
 
-## Built with
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+### Available Scripts
+
+- `npm run dev`: Starts the Next.js development server.
+- `npm run build`: Builds the production bundle.
+- `npm run start`: Runs the built production server.
+- `npm run lint`: Runs ESLint checks.
+- `npm run format`: Formats code with Prettier.
+
+## Contact & Business Info
+
+- **Business Name**: EVA Waterproofing & Solution
+- **Phone**: +91 7027143118
+- **Email**: eva.waterproofing@gmail.com
+- **Location**: Kurukshetra, Haryana

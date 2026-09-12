@@ -24,13 +24,13 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
         scrolled
-          ? "border-border bg-background/95 shadow-card backdrop-blur"
-          : "border-transparent bg-background/80 backdrop-blur",
+          ? "border-white/10 bg-primary-deep/95 shadow-card backdrop-blur"
+          : "border-white/10 bg-primary-deep/85 backdrop-blur",
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:h-18 lg:px-8">
-        <a href="#home" className="flex items-center gap-3.5 group" onClick={() => setOpen(false)}>
-          <div className="relative size-12 sm:size-14 shrink-0 overflow-hidden rounded-2xl border border-border/80 bg-white p-1 shadow-sm transition-transform duration-300 group-hover:scale-105">
+        <a href="/#home" className="flex items-center gap-3.5 group" onClick={() => setOpen(false)}>
+          <div className="relative size-12 sm:size-14 shrink-0 overflow-hidden rounded-2xl border border-white/20 bg-white p-1 shadow-sm transition-transform duration-300 group-hover:scale-105">
             <Image
               src={logoEmblem}
               alt="EVA Waterproofing & Solution Logo"
@@ -41,10 +41,10 @@ export function Navbar() {
             />
           </div>
           <span className="leading-tight">
-            <span className="block text-[1.05rem] font-extrabold tracking-tight text-primary sm:text-lg">
+            <span className="block text-[1.05rem] font-extrabold tracking-tight text-white sm:text-lg">
               EVA Waterproofing
             </span>
-            <span className="block text-[0.7rem] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
+            <span className="block text-[0.7rem] font-bold uppercase tracking-[0.18em] text-accent-strong sm:text-xs">
               &amp; Solution
             </span>
           </span>
@@ -55,7 +55,7 @@ export function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/75 transition-colors hover:bg-secondary hover:text-primary"
+              className="rounded-md px-3 py-2 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
             >
               {l.label}
             </a>
@@ -64,12 +64,12 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <div className="hidden text-right lg:block">
-            <span className="block text-[0.65rem] font-semibold uppercase tracking-widest text-muted-foreground">
+            <span className="block text-[0.65rem] font-semibold uppercase tracking-widest text-white/60">
               Call us
             </span>
             <a
               href={SITE.phoneHref}
-              className="block text-sm font-bold text-primary hover:text-accent-strong"
+              className="block text-sm font-bold text-white transition-colors hover:text-accent-strong"
             >
               {SITE.phone}
             </a>
@@ -85,7 +85,7 @@ export function Navbar() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid size-10 place-items-center rounded-lg border border-border text-primary xl:hidden"
+            className="grid size-10 place-items-center rounded-lg border border-white/20 text-white transition-colors hover:bg-white/10 xl:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -93,14 +93,14 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-border bg-background xl:hidden">
+        <div className="border-t border-white/10 bg-primary-deep xl:hidden">
           <nav className="mx-auto grid max-w-7xl gap-1 px-4 py-3">
             {NAV_LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
+                className="rounded-lg px-3 py-2.5 text-sm font-semibold text-white/85 transition-colors hover:bg-white/10 hover:text-white"
               >
                 {l.label}
               </a>
