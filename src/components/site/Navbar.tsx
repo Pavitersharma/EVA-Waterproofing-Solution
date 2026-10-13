@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,7 +30,12 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:h-18 lg:px-8">
-        <a href="/#home" className="flex items-center gap-3.5 group" onClick={() => setOpen(false)}>
+        {/* Brand Logo */}
+        <Link
+          href="/#home"
+          className="flex items-center gap-3.5 group"
+          onClick={() => setOpen(false)}
+        >
           <div className="relative size-12 sm:size-14 shrink-0 overflow-hidden rounded-2xl border border-white/20 bg-white p-1 shadow-sm transition-transform duration-300 group-hover:scale-105">
             <Image
               src={logoEmblem}
@@ -48,9 +54,10 @@ export function Navbar() {
               &amp; Solution
             </span>
           </span>
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-1 xl:flex">
+        {/* Desktop Navigation: Home, Services, About, Contact */}
+        <nav className="hidden items-center gap-1.5 lg:flex">
           {NAV_LINKS.map((l) => (
             <a
               key={l.href}
@@ -62,6 +69,7 @@ export function Navbar() {
           ))}
         </nav>
 
+        {/* Right Action Section */}
         <div className="flex items-center gap-2">
           <div className="hidden text-right lg:block">
             <span className="block text-[0.65rem] font-semibold uppercase tracking-widest text-white/60">
@@ -85,15 +93,16 @@ export function Navbar() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="grid size-10 place-items-center rounded-lg border border-white/20 text-white transition-colors hover:bg-white/10 xl:hidden"
+            className="grid size-10 place-items-center rounded-lg border border-white/20 text-white transition-colors hover:bg-white/10 lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Drawer */}
       {open && (
-        <div className="border-t border-white/10 bg-primary-deep xl:hidden">
+        <div className="border-t border-white/10 bg-primary-deep lg:hidden">
           <nav className="mx-auto grid max-w-7xl gap-1 px-4 py-3">
             {NAV_LINKS.map((l) => (
               <a
@@ -105,7 +114,8 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <div className="mt-2 grid grid-cols-2 gap-2">
+
+            <div className="mt-3 grid grid-cols-2 gap-2">
               <Button asChild variant="cta">
                 <a href={SITE.phoneHref}>Call Now</a>
               </Button>

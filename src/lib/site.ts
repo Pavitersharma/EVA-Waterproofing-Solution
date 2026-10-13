@@ -5,6 +5,8 @@ export const SITE = {
   phoneHref: "tel:+917497090944",
   whatsappHref:
     "https://wa.me/917497090944?text=Hi%20EVA%20Waterproofing%2C%20I%20have%20a%20leakage%2Fseepage%20problem%20and%20would%20like%20an%20inspection.",
+  instagramHref: "https://www.instagram.com/eva.waterproofing/",
+  facebookHref: "https://www.facebook.com/EVAWaterproofing",
   email: "eva.waterproofing@gmail.com",
   emailHref: "mailto:eva.waterproofing@gmail.com",
   location: "Kurukshetra, Haryana",
@@ -13,9 +15,7 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: "Home", href: "/#home" },
   { label: "Services", href: "/#services" },
-  { label: "How It Works", href: "/#process" },
-  { label: "Why Choose Us", href: "/#why-us" },
-  { label: "Projects", href: "/#projects" },
+  // { label: "Products", href: "/products", isProducts: true },
   { label: "About", href: "/#about" },
   { label: "Contact", href: "/contact" },
 ] as const;

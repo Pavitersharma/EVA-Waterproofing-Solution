@@ -52,4 +52,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 - **Phone**: +91 7497090944
 - **Email**: eva.waterproofing@gmail.com
 - **Location**: Kurukshetra, Haryana
-

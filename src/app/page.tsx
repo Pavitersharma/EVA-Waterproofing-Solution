@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import {
   ArrowRight,
@@ -38,6 +39,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { SITE } from "@/lib/site";
+// import { PRODUCTS } from "@/lib/products";
 
 import heroImg from "@/assets/hero-terrace-waterproofing.jpg";
 import aboutImg from "@/assets/about-inspection.jpg";
@@ -279,6 +281,7 @@ export default function HomeLandingPage() {
         <main>
           <Hero />
           <Services />
+          {/* <ProductsSection /> */}
           <Process />
           <WhyUs />
           <Projects />
@@ -403,6 +406,83 @@ function Services() {
     </section>
   );
 }
+
+/*
+function ProductsSection() {
+  return (
+    <section
+      id="products-preview"
+      className="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/80"
+    >
+      <div className="section-shell">
+        <SectionHeading
+          eyebrow="Specialized Formulations"
+          title="EVA High-Performance Waterproofing Products"
+          subtitle="Engineered chemical systems formulated for Indian conditions — elastomeric coatings, 2K polymer barriers, and SBR bonding additives."
+        />
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-3">
+          {PRODUCTS.map((p, i) => (
+            <Reveal key={p.id} delay={i * 90} className="h-full">
+              <div className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+                <div>
+                  <div className="relative mx-auto aspect-square w-full max-w-[240px] overflow-hidden rounded-xl bg-slate-50 p-3 border border-slate-100">
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      width={240}
+                      height={240}
+                      className="size-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <span className="mt-4 inline-block rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">
+                    {p.category}
+                  </span>
+                  <h3 className="mt-2 text-xl font-extrabold text-slate-900 group-hover:text-primary transition-colors">
+                    {p.name}
+                  </h3>
+                  <p className="mt-1 text-xs font-bold text-brand">{p.subtitle}</p>
+                  <p className="mt-3 text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                    {p.shortDesc}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <Link
+                    href={`/products#${p.id}`}
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
+                  >
+                    Explore Product →
+                  </Link>
+                  <a
+                    href={`https://wa.me/917497090944?text=${encodeURIComponent(
+                      `Hi EVA Waterproofing, I want to inquire about ${p.name}.`,
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-semibold text-slate-500 hover:text-slate-800"
+                  >
+                    WhatsApp Enquiries
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Button asChild variant="cta" size="lg">
+            <Link href="/products">
+              View All Products &amp; Specifications
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+*/
 
 function Process() {
   return (

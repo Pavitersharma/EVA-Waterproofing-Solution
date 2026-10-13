@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import logoEmblem from "@/assets/logo-emblem.png";
 
@@ -34,6 +34,31 @@ export function Footer() {
             Professional waterproofing, leakage repair, seepage and dampness solutions in
             Kurukshetra and nearby areas.
           </p>
+
+          {/* Social Media Links */}
+          <div className="mt-5 flex items-center gap-3">
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">
+              Follow Us:
+            </span>
+            <a
+              href={SITE.instagramHref}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="EVA Waterproofing on Instagram"
+              className="grid size-9 place-items-center rounded-xl border border-white/15 bg-white/5 text-primary-foreground/85 transition-all hover:border-accent-strong/60 hover:bg-white/15 hover:text-white hover:scale-105"
+            >
+              <Instagram className="size-4" aria-hidden="true" />
+            </a>
+            <a
+              href={SITE.facebookHref}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="EVA Waterproofing on Facebook"
+              className="grid size-9 place-items-center rounded-xl border border-white/15 bg-white/5 text-primary-foreground/85 transition-all hover:border-accent-strong/60 hover:bg-white/15 hover:text-white hover:scale-105"
+            >
+              <Facebook className="size-4" aria-hidden="true" />
+            </a>
+          </div>
         </div>
 
         <div>
@@ -80,6 +105,25 @@ export function Footer() {
             <li className="inline-flex items-center gap-2">
               <MapPin className="size-4" aria-hidden="true" />
               {SITE.location}
+            </li>
+            <li className="pt-2 flex items-center gap-3">
+              <a
+                href={SITE.instagramHref}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-strong hover:underline"
+              >
+                <Instagram className="size-3.5" /> Instagram
+              </a>
+              <span className="text-white/30">•</span>
+              <a
+                href={SITE.facebookHref}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-strong hover:underline"
+              >
+                <Facebook className="size-3.5" /> Facebook
+              </a>
             </li>
           </ul>
         </div>
