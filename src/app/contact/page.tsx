@@ -14,7 +14,7 @@ import logoEmblem from "@/assets/logo-emblem.png";
 
 const TITLE = "Contact Us | EVA Waterproofing & Solution";
 const DESCRIPTION =
-  "Contact EVA Waterproofing & Solution for waterproofing, leakage repair, and seepage treatment in Kurukshetra. Call +91 7027143118 or fill out our contact form.";
+  "Contact EVA Waterproofing & Solution for waterproofing, leakage repair, and seepage treatment in Kurukshetra. Call +91 7497090944 or fill out our contact form.";
 
 export const metadata: Metadata = {
   title: TITLE,

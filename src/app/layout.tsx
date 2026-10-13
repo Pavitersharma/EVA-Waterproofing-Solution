@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://evawaterproofing.in"),
   title: "EVA Waterproofing & Solution | Waterproofing Services in Kurukshetra",
   description:
-    "Waterproofing, leakage repair, seepage and dampness treatment for homes and commercial properties in Kurukshetra, Haryana. Call +91 7027143118.",
+    "Waterproofing, leakage repair, seepage and dampness treatment for homes and commercial properties in Kurukshetra, Haryana. Call +91 7497090944.",
   openGraph: {
     siteName: "EVA Waterproofing & Solution",
     type: "website",

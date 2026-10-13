@@ -52,7 +52,7 @@ import logoEmblem from "@/assets/logo-emblem.png";
 
 const TITLE = "EVA Waterproofing & Solution | Waterproofing Services in Kurukshetra";
 const DESCRIPTION =
-  "EVA Waterproofing & Solution provides terrace, roof, bathroom and basement waterproofing, leakage repair, seepage and dampness treatment in Kurukshetra and nearby areas. Call +91 7027143118.";
+  "EVA Waterproofing & Solution provides terrace, roof, bathroom and basement waterproofing, leakage repair, seepage and dampness treatment in Kurukshetra and nearby areas. Call +91 7497090944.";
 
 export const metadata: Metadata = {
   title: TITLE,
