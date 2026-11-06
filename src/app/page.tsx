@@ -330,6 +330,38 @@ function Hero() {
               for homes, commercial properties and other buildings in Kurukshetra and nearby areas.
             </p>
           </Reveal>
+          {/* Mobile-only Hero Image */}
+          <Reveal delay={200} className="mt-6 sm:hidden">
+            <div className="relative overflow-hidden rounded-2xl border border-white/20 shadow-lift">
+              <Image
+                src={aboutImg}
+                alt="Certified Waterproofing Team technician checking wall dampness with a moisture meter"
+                priority
+                width={720}
+                height={540}
+                className="aspect-4/3 w-full object-cover"
+              />
+              <div className="absolute bottom-3 left-3 flex items-center gap-2.5 rounded-xl border border-white/20 bg-background/95 p-2.5 shadow-lift backdrop-blur">
+                <div className="size-10 shrink-0 rounded-xl border border-border/80 bg-white p-1 shadow-sm">
+                  <Image
+                    src={logoEmblem}
+                    alt="EVA Waterproofing Badge"
+                    width={40}
+                    height={40}
+                    className="size-full object-contain"
+                  />
+                </div>
+                <div className="pr-1 text-left">
+                  <p className="text-xs font-bold leading-tight text-primary">
+                    Certified Waterproofing Team
+                  </p>
+                  <p className="text-[0.68rem] font-semibold text-muted-foreground">
+                    EVA Waterproofing &amp; Solution
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
           <Reveal delay={240}>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="hero" size="xl">
