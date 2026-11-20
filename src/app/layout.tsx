@@ -2,8 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import { Toaster } from "@/components/ui/sonner";
-import { FestivePopup } from "@/components/site/FestivePopup";
-import { DiwaliCrackers } from "@/components/diwali/DiwaliCrackers";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-M5FZ5V56DL";
@@ -67,9 +65,6 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
-        <FestivePopup />
-        {/* Diwali festive crackers effect (Remove after Diwali) */}
-        <DiwaliCrackers />
         <Toaster position="top-center" richColors />
       </body>
     </html>
